@@ -2,17 +2,11 @@ define([
     'backbone',
     'react',
     'reactDom',
+    'jsx!../components/home',
     'jsx!../../commons/modules/ui/components/base-template'
-], function (Backbone, React, ReactDom, BaseTemplate) {
+], function (Backbone, React, ReactDom, Home, BaseTemplate) {
     var BaseTemplateElement = React.createElement(BaseTemplate, {
-        header: {
-            title: 'Ordex',
-            links: ['Home']
-        },
-        sidebar: {
-            title: 'Ordex User',
-            links: ['Profile', 'To Dos', 'Calendar']
-        }
+        content: Home
     });
 
     var HomeView = Backbone.View.extend({

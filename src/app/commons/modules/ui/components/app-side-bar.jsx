@@ -1,12 +1,10 @@
 define([
     'react',
-    'mdl',
-    'underscore'
-], function (React, componentHandler, _) {
-
+    'mdl'
+], function (React, componentHandler) {
     var SideBarLink = React.createClass({
         render: function () {
-            return <a className="mdl-navigation__link" href={this.props.name}>{this.props.name}</a>
+            return <a className="mdl-navigation__link" href={this.props.link.href}>{this.props.link.title}</a>
         }
     });
 
@@ -19,11 +17,11 @@ define([
         render: function () {
             return (
                 <div className="mdl-layout__drawer">
-                    <span className="mdl-layout-title">{this.props.sidebar.title}</span>
+                    <span className="mdl-layout-title">{this.props.sidebar.get('title')}</span>
                     <nav className="mdl-navigation">
 
-                        {this.props.sidebar.links.map(function (link) {
-                            return <SideBarLink key={link} name={link}></SideBarLink>
+                        {this.props.sidebar.get('links').map(function (link) {
+                            return <SideBarLink key={link.href} link={link}></SideBarLink>
                         })}
 
                     </nav>
