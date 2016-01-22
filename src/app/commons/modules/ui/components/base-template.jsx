@@ -4,10 +4,11 @@ define([
 
     'jsx!./app-header',
     'jsx!./app-side-bar',
+    'jsx!./app-footer',
 
     '../models/header.model',
     '../models/side-bar.model'
-], function (React, componentHandler, AppHeader, AppSideBar, HeaderModel, SideBarModel) {
+], function (React, componentHandler, AppHeader, AppSideBar, AppFooter, HeaderModel, SideBarModel) {
 
     /** @type HeaderModel */
     var header = new HeaderModel();
@@ -33,6 +34,8 @@ define([
                             <this.props.content></this.props.content>
                         </div>
                     </main>
+
+                    <AppFooter></AppFooter>
                 </div>
             )
         }

@@ -1,5 +1,6 @@
 *~
 node_modules/
 src/vendor/
-src/style/app.css
+src/style/app.min.css
+src/style/app.min.css.map
 .idea/

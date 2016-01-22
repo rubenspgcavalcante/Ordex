@@ -1,4 +1,9 @@
-define(['react', 'mdl'], function (React, componentHandler) {
+define([
+    'react',
+    'mdl',
+    'jsx!./todo-list',
+    'jsx!./calendar'
+], function (React, componentHandler, TodoList, Calendar) {
 
     var HeaderLink = React.createClass({
         render: function () {
@@ -15,16 +20,12 @@ define(['react', 'mdl'], function (React, componentHandler) {
         render: function () {
             return (
                 <div className="mdl-grid">
-                    <div className="mdl-cell mdl-cell--8-col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem tenetur et quisquam quo, aut
-                            obcaecati eveniet! Sunt modi cupiditate commodi veniam, debitis eum alias eligendi iste!
-                            Blanditiis animi aspernatur corrupti.</p>
+                    <div className="mdl-cell mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
+                        <Calendar></Calendar>
                     </div>
 
-                    <div className="mdl-cell  mdl-cell--4-col">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem tenetur et quisquam quo, aut
-                            obcaecati eveniet! Sunt modi cupiditate commodi veniam, debitis eum alias eligendi iste!
-                            Blanditiis animi aspernatur corrupti.</p>
+                    <div className="mdl-cell mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
+                        <TodoList></TodoList>
                     </div>
                 </div>
             );
