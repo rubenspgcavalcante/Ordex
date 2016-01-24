@@ -20,7 +20,9 @@ gulp.task('style', function () {
 gulp.task('compile-ts', function () {
     gulp.src('src/**/*.ts')
         .pipe(sourcemaps.init())
-        .pipe(ts())
+        .pipe(ts({
+            module: 'amd'
+        }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('src/.'));
 });
@@ -33,7 +35,9 @@ gulp.task('watcher:typescript', function () {
     gulp.watch('src/**/*.ts', ['compile-ts']);
 });
 
-gulp.task('start-server', ['watcher:sass'], function () {
+gulp.task('watchers', ['watcher:typescript', 'watcher:sass']);
+
+gulp.task('start-server', ['watchers'], function () {
     gulp.src('src').pipe(server({
         host: '0.0.0.0',
         port: 1234,
