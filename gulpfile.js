@@ -52,7 +52,7 @@ gulp.task('watcher:react', function () {
 gulp.task('watchers', ['watcher:typescript', 'watcher:react', 'watcher:sass']);
 
 gulp.task('clean', [], function(){
-    return gulp.src('src/app/**/*.js', 'src/app/**/*.map').pipe(clean());
+    return gulp.src(['src/app/**/*.js', 'src/app/**/*.map']).pipe(clean());
 });
 
 gulp.task('start-server', ['watchers'], function () {
