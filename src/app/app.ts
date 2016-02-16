@@ -1,3 +1,13 @@
-import HomeModule = require('./home/home');
+import Backbone = require('backbone');
 
-HomeModule.Home.execute();
+import HomeModule = require('./home/home');
+import Module = require('./core/module')
+
+class App {
+    constructor() {
+        Backbone.history.start();
+        var Home = new HomeModule.Home();
+    }
+}
+
+new App();

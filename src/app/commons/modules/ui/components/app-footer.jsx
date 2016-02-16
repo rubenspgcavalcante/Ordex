@@ -3,7 +3,6 @@ define([
     'mdl'
 ], function (React, componentHandler) {
 
-    /** @jsx React.DOM */
     var Component = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();

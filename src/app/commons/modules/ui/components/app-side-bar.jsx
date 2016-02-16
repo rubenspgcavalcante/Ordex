@@ -8,7 +8,6 @@ define([
         }
     });
 
-    /** @jsx React.DOM */
     var AppSideBar = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();

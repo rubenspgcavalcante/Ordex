@@ -11,7 +11,6 @@ define([
         }
     });
 
-    /** @jsx React.DOM */
     var Home = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();

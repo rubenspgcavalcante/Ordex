@@ -4,12 +4,14 @@ var server = require('gulp-webserver');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var ts = require('gulp-typescript');
+var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
+var clean = require('gulp-clean');
 
 gulp.task('default', ['style']);
 
 gulp.task('style', function () {
-    gulp.src('src/style/**/*.sass')
+    return gulp.src('src/style/**/*.sass')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('app.min.css'))
@@ -17,8 +19,8 @@ gulp.task('style', function () {
         .pipe(gulp.dest('src/style/'));
 });
 
-gulp.task('compile-ts', function () {
-    gulp.src('src/**/*.ts')
+gulp.task('transform-ts', function () {
+    return gulp.src('src/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(ts({
             module: 'amd'
@@ -27,18 +29,34 @@ gulp.task('compile-ts', function () {
         .pipe(gulp.dest('src/.'));
 });
 
+gulp.task('transform-jsx', function () {
+    return gulp.src('src/**/*.jsx')
+        .pipe(sourcemaps.init())
+        .pipe(babel())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest('src/.'));
+});
+
 gulp.task('watcher:sass', function () {
-    gulp.watch('src/style/**/*.sass', ['style']);
+    return gulp.watch('src/style/**/*.sass', ['style']);
 });
 
 gulp.task('watcher:typescript', function () {
-    gulp.watch('src/**/*.ts', ['compile-ts']);
+    return gulp.watch('src/**/*.ts', ['transform-ts']);
 });
 
-gulp.task('watchers', ['watcher:typescript', 'watcher:sass']);
+gulp.task('watcher:react', function () {
+    return gulp.watch('src/**/*.jsx', ['transform-jsx']);
+});
+
+gulp.task('watchers', ['watcher:typescript', 'watcher:react', 'watcher:sass']);
+
+gulp.task('clean', [], function(){
+    return gulp.src('src/app/**/*.js', 'src/app/**/*.map').pipe(clean());
+});
 
 gulp.task('start-server', ['watchers'], function () {
-    gulp.src('src').pipe(server({
+    return gulp.src('src').pipe(server({
         host: '0.0.0.0',
         port: 1234,
         liveload: true

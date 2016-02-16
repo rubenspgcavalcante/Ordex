@@ -6,7 +6,6 @@ define(['react', 'mdl'], function (React, componentHandler) {
         }
     });
 
-    /** @jsx React.DOM */
     var AppHeader = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();

@@ -1,6 +1,5 @@
-*~
 *.map
-node_modules/
+node_modules/*
 src/vendor/
 src/app/**/*.js
 src/style/app.min.css

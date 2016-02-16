@@ -1,6 +1,6 @@
 /// <reference path="../../../../typings/tsd.d.ts"/>
 
-import  Backbone = require('backbone')
+import Backbone = require('backbone');
 import React = require('react');
 import ReactDom = require('reactDom');
 

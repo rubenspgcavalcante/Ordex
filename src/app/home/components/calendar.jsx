@@ -3,8 +3,7 @@ define([
     'mdl'
 ], function (React, componentHandler) {
 
-    /** @jsx React.DOM */
-    var TodoList = React.createClass({
+    var Calendar = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();
         },
@@ -34,5 +33,5 @@ define([
         }
     });
 
-    return TodoList;
+    return Calendar;
 });

@@ -16,8 +16,6 @@ define([
     /** #type SideBarModel */
     var sidebar = new SideBarModel();
 
-
-    /** @jsx React.DOM */
     var BaseTemplate = React.createClass({
         componentDidMount: function () {
             componentHandler.upgradeDom();
