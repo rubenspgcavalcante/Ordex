@@ -4,8 +4,8 @@ export interface Declaration {
     execute: Function
 }
 
-export function route(route:string, View?:new () => Backbone.View) {
-    return (target:Declaration, propertyKey:string, descriptor:TypedPropertyDescriptor<any>) => {
+export function route(route:string, View?:new () => Backbone.View<any>):PropertyDecorator {
+    return function (target:Declaration, propertyKey:string | symbol) {
 
         class Router extends Backbone.Router {
             constructor(options?:Backbone.RouterOptions) {
@@ -25,6 +25,5 @@ export function route(route:string, View?:new () => Backbone.View) {
         }
 
         new Router();
-        return descriptor;
     }
 }

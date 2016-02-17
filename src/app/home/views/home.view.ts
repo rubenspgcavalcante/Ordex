@@ -1,11 +1,9 @@
-/// <reference path="../../../../typings/tsd.d.ts"/>
-
 import Backbone = require('backbone');
 import React = require('react');
 import ReactDom = require('reactDom');
 
-import Home = require('jsx!../components/home');
-import BaseTemplate = require('jsx!../../commons/modules/ui/components/base-template');
+import Home = require('../components/home');
+import BaseTemplate = require('../../commons/modules/ui/components/base-template');
 
 var BaseTemplateElement = React.createElement(BaseTemplate, {
     content: Home

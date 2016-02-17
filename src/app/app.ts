@@ -1,3 +1,4 @@
+/// <reference path="../../typings/tsd.d.ts"/>
 import Backbone = require('backbone');
 
 import HomeModule = require('./home/home');

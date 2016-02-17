@@ -1,10 +1,8 @@
 import Backbone = require('backbone');
 
 export class SideBarModel extends Backbone.Model {
-    public defaults;
-
     constructor(attrs:any, options) {
-        this.defaults = {
+        this.defaults = <any>{
             title: 'User Name',
             links: [
                 {title: 'Home', href: '#/home'},

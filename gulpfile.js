@@ -8,7 +8,7 @@ var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var clean = require('gulp-clean');
 
-gulp.task('default', ['style']);
+gulp.task('default', ['style', 'transform-ts', 'transform-jsx']);
 
 gulp.task('style', function () {
     return gulp.src('src/style/**/*.sass')
@@ -23,7 +23,8 @@ gulp.task('transform-ts', function () {
     return gulp.src('src/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(ts({
-            module: 'amd'
+            module: 'amd',
+            experimentalDecorators: true
         }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('src/.'));
