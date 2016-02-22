@@ -1,5 +1,5 @@
-import CalendarPack = require('calendar');
-import TodoListPack = require('todo-list');
+import CalendarPack = require('./calendar');
+import TodoListPack = require('./todo-list');
 
 import React = require('react');
 import componentHandler = require('mdl');

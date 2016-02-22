@@ -2,11 +2,11 @@ import Backbone = require('backbone');
 import React = require('react');
 import ReactDom = require('reactDom');
 
-import Home = require('../components/home');
+import HomePack = require('../components/home');
 import BaseTemplatePack = require('../../commons/modules/ui/components/base-template');
 
 var BaseTemplateElement = React.createElement(BaseTemplatePack.BaseTemplate, {
-    content: Home
+    content: HomePack.Home
 });
 
 export class HomeView extends Backbone.View<Backbone.Model> {

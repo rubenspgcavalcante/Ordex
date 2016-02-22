@@ -25,7 +25,7 @@ export class BaseTemplate extends React.Component<any, {}> {
 
                 <main className="mdl-layout__content">
                     <div className="page-content">
-                        {this.props.content}
+                        <this.props.content></this.props.content>
                     </div>
                 </main>
 
