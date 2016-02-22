@@ -20,20 +20,13 @@ gulp.task('style', function () {
 });
 
 gulp.task('transform-ts', function () {
-    return gulp.src('src/**/*.ts')
+    return gulp.src(['src/**/*.ts', 'src/**/*.tsx'])
         .pipe(sourcemaps.init())
         .pipe(ts({
             module: 'amd',
+            jsx: 'react',
             experimentalDecorators: true
         }))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('src/.'));
-});
-
-gulp.task('transform-jsx', function () {
-    return gulp.src('src/**/*.jsx')
-        .pipe(sourcemaps.init())
-        .pipe(babel())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('src/.'));
 });
@@ -43,14 +36,10 @@ gulp.task('watcher:sass', function () {
 });
 
 gulp.task('watcher:typescript', function () {
-    return gulp.watch('src/**/*.ts', ['transform-ts']);
+    return gulp.watch(['src/**/*.ts', 'src/**/*.tsx'], ['transform-ts']);
 });
 
-gulp.task('watcher:react', function () {
-    return gulp.watch('src/**/*.jsx', ['transform-jsx']);
-});
-
-gulp.task('watchers', ['watcher:typescript', 'watcher:react', 'watcher:sass']);
+gulp.task('watchers', ['watcher:typescript', 'watcher:sass']);
 
 gulp.task('clean', [], function(){
     return gulp.src(['src/app/**/*.js', 'src/app/**/*.map']).pipe(clean());

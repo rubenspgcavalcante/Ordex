@@ -3,9 +3,9 @@ import React = require('react');
 import ReactDom = require('reactDom');
 
 import Home = require('../components/home');
-import BaseTemplate = require('../../commons/modules/ui/components/base-template');
+import BaseTemplatePack = require('../../commons/modules/ui/components/base-template');
 
-var BaseTemplateElement = React.createElement(BaseTemplate, {
+var BaseTemplateElement = React.createElement(BaseTemplatePack.BaseTemplate, {
     content: Home
 });
 
