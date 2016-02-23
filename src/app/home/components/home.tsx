@@ -1,9 +1,9 @@
-import CalendarPack = require('./calendar');
-import TodoListPack = require('./todo-list');
-
 import React = require('react');
 import componentHandler = require('mdl');
 import Props = __React.Props;
+
+import {Calendar} from './calendar';
+import {TodoList} from './todo-list';
 
 export class Home extends React.Component<Props<any>, {}> {
     componentDidMount() {
@@ -14,11 +14,11 @@ export class Home extends React.Component<Props<any>, {}> {
         return (
             <div className="mdl-grid">
                 <div className="mdl-cell mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
-                    <CalendarPack.Calendar></CalendarPack.Calendar>
+                    <Calendar></Calendar>
                 </div>
 
                 <div className="mdl-cell mdl-cell--12-col-tablet mdl-cell--3-col-desktop">
-                    <TodoListPack.TodoList></TodoListPack.TodoList>
+                    <TodoList></TodoList>
                 </div>
             </div>
         );

@@ -3,13 +3,16 @@
 
 import Backbone = require('backbone');
 
-import HomeModule = require('./home/home');
-import Module = require('./core/module')
+import {Autowired} from './core/module';
+import {Home} from './home/home';
 
 class App {
+
+    @Autowired(Home)
+    public home:Home;
+
     constructor() {
         Backbone.history.start();
-        var Home = new HomeModule.Home();
     }
 }
 

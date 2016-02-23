@@ -1,10 +1,10 @@
 import Backbone = require('backbone');
 
-import HomeViewModule = require('./views/home.view');
-import Module = require('../core/module');
+import {HomeView} from './views/home.view';
+import {Route, Declaration} from '../core/module';
 
-export class Home implements Module.Declaration {
-    @Module.route('home', HomeViewModule.HomeView)
+export class Home implements Declaration {
+    @Route('home', HomeView)
     execute() {
 
     }

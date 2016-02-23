@@ -4,7 +4,11 @@ export interface Declaration {
     execute: Function
 }
 
-export function route(route:string, View?:new () => Backbone.View<any>):PropertyDecorator {
+/**
+ * Route decorator
+ * Registers a new route into the application, using as base a module class method
+ */
+export function Route(route:string, View?:new () => Backbone.View<any>):PropertyDecorator {
     return function (target:Declaration, propertyKey:string | symbol) {
 
         class Router extends Backbone.Router {
@@ -26,4 +30,14 @@ export function route(route:string, View?:new () => Backbone.View<any>):Property
 
         new Router();
     }
+}
+
+/**
+ * Dependency injector decorator
+ * A module into the application using as base a module class declaration
+ */
+export function Autowired(ModuleClass:new () => Declaration) {
+    return function (target:any, key:string) {
+        target[key] = new ModuleClass();
+    };
 }
